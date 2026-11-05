@@ -1,0 +1,556 @@
+import { Product, Coupon } from '../types';
+import { APP_IMAGES } from '../assets/images';
+
+export const INITIAL_PRODUCTS: Product[] = [
+  // 1. BATTERIES
+  {
+    id: 'prod-bat-1',
+    sku: 'SV-LFP-48100',
+    name: 'SmartVolt 48V 100Ah LiFePO4 Industrial Battery Module',
+    category: 'Batteries',
+    subcategory: 'Lithium iron phosphate batteries',
+    description: 'High-density Lithium Iron Phosphate deep-cycle rack storage module with integrated smart Bluetooth BMS, 4000+ cycle life, and dual M8 brass terminal studs.',
+    price: 68500,
+    mrp: 82000,
+    imageUrl: APP_IMAGES.batteryIndustrial,
+    stockQuantity: 14,
+    isFeatured: true,
+    averageRating: 4.9,
+    specifications: {
+      nominalVoltage: 48,
+      operatingVoltageMin: 42,
+      operatingVoltageMax: 54.8,
+      continuousPowerWatts: 4800,
+      surgePowerWatts: 9600,
+      capacityAh: 100,
+      batteryChemistry: 'LiFePO4',
+      connectorType: 'M8 Bolt Terminal',
+      efficiencyPercent: 96,
+      cycleLife: 4500,
+      warrantyMonths: 60,
+      weightKg: 42.5,
+      hsnCode: '85076000'
+    },
+    reviews: [
+      {
+        id: 'rev-1',
+        userId: 'u-1',
+        userName: 'Vikram Mehta',
+        rating: 5,
+        title: 'Outstanding battery for 5kVA Solar Inverter',
+        comment: 'Runs my 5kW hybrid inverter seamlessly during power cuts. Voltage stays rock solid at 51.2V even under heavy AC compressor loads.',
+        createdAt: '2026-10-12',
+        isVerifiedPurchase: true
+      }
+    ]
+  },
+  {
+    id: 'prod-bat-2',
+    sku: 'SV-LFP-12100',
+    name: 'SmartVolt 12.8V 100Ah LiFePO4 Marine & RV Deep Cycle Battery',
+    category: 'Batteries',
+    subcategory: 'Lithium iron phosphate batteries',
+    description: 'Lightweight replacement for 12V 200Ah Lead-Acid. Built-in 100A continuous Smart BMS with low-temperature charge cutoff protection.',
+    price: 24500,
+    mrp: 31000,
+    imageUrl: APP_IMAGES.batteryMarine,
+    stockQuantity: 28,
+    isFeatured: true,
+    averageRating: 4.8,
+    specifications: {
+      nominalVoltage: 12.8,
+      operatingVoltageMin: 10.5,
+      operatingVoltageMax: 14.6,
+      continuousPowerWatts: 1280,
+      surgePowerWatts: 2500,
+      capacityAh: 100,
+      batteryChemistry: 'LiFePO4',
+      connectorType: 'M8 Bolt Terminal',
+      efficiencyPercent: 95,
+      cycleLife: 3500,
+      warrantyMonths: 36,
+      weightKg: 11.2,
+      hsnCode: '85076000'
+    },
+    reviews: [
+      {
+        id: 'rev-2',
+        userId: 'u-2',
+        userName: 'Ananya Deshmukh',
+        rating: 5,
+        title: 'Tremendous weight reduction and quick charging',
+        comment: 'Replaced a heavy 60kg lead acid tubular battery. Weighs only 11kg and charges to 100% in 2.5 hours.',
+        createdAt: '2026-10-25',
+        isVerifiedPurchase: true
+      }
+    ]
+  },
+  {
+    id: 'prod-bat-3',
+    sku: 'SV-TUB-12150',
+    name: 'SmartVolt DuraCell 12V 150Ah Tall Tubular Solar Lead-Acid Battery',
+    category: 'Batteries',
+    subcategory: 'Lead-acid batteries',
+    description: 'Heavy-duty antimony alloy tall tubular battery designed for long backup in regions with frequent power outages. Low antimony alloy reduces water loss.',
+    price: 13500,
+    mrp: 17500,
+    imageUrl: APP_IMAGES.batteryIndustrial,
+    stockQuantity: 18,
+    isFeatured: false,
+    averageRating: 4.6,
+    specifications: {
+      nominalVoltage: 12,
+      operatingVoltageMin: 10.5,
+      operatingVoltageMax: 14.4,
+      continuousPowerWatts: 900,
+      surgePowerWatts: 1800,
+      capacityAh: 150,
+      batteryChemistry: 'Lead-Acid',
+      connectorType: 'Terminal Posts',
+      efficiencyPercent: 82,
+      cycleLife: 1200,
+      warrantyMonths: 36,
+      weightKg: 54.0,
+      hsnCode: '85072000'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-bat-4',
+    sku: 'SV-LION-2450',
+    name: 'SmartVolt EV-Grade 24V 50Ah Lithium-Ion NMC Pack',
+    category: 'Batteries',
+    subcategory: 'Lithium-ion batteries',
+    description: 'High-discharge 7S Lithium-ion pack engineered for electric golf carts, AGVs, robotics, and high-wattage DC motorized applications.',
+    price: 21900,
+    mrp: 26000,
+    imageUrl: APP_IMAGES.hero,
+    stockQuantity: 12,
+    isFeatured: false,
+    averageRating: 4.7,
+    specifications: {
+      nominalVoltage: 24,
+      operatingVoltageMin: 21.0,
+      operatingVoltageMax: 29.4,
+      continuousPowerWatts: 1500,
+      surgePowerWatts: 3000,
+      capacityAh: 50,
+      batteryChemistry: 'Li-ion',
+      connectorType: 'Anderson SB50',
+      efficiencyPercent: 94,
+      cycleLife: 2000,
+      warrantyMonths: 24,
+      weightKg: 8.8,
+      hsnCode: '85076000'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-bat-5',
+    sku: 'SV-VRLA-1207',
+    name: 'SmartVolt 12V 7.2Ah Sealed Maintenance-Free VRLA UPS Battery',
+    category: 'Batteries',
+    subcategory: 'UPS batteries',
+    description: 'Absorbent Glass Mat (AGM) sealed battery for computer UPS, emergency lights, electronic security systems, and robotics labs.',
+    price: 1150,
+    mrp: 1450,
+    imageUrl: APP_IMAGES.batteryIndustrial,
+    stockQuantity: 65,
+    isFeatured: false,
+    averageRating: 4.5,
+    specifications: {
+      nominalVoltage: 12,
+      operatingVoltageMin: 10.5,
+      operatingVoltageMax: 13.8,
+      continuousPowerWatts: 85,
+      surgePowerWatts: 150,
+      capacityAh: 7.2,
+      batteryChemistry: 'VRLA',
+      connectorType: 'F2 Spade Terminals',
+      efficiencyPercent: 88,
+      cycleLife: 400,
+      warrantyMonths: 12,
+      weightKg: 2.1,
+      hsnCode: '85072000'
+    },
+    reviews: []
+  },
+
+  // 2. POWER EQUIPMENT
+  {
+    id: 'prod-pow-1',
+    sku: 'SV-INV-3500W',
+    name: 'SmartVolt Pure Sine Wave Hybrid Solar Inverter 3.5kVA / 24V',
+    category: 'Power Equipment',
+    subcategory: 'Inverters',
+    description: 'Microprocessor controlled pure sine wave inverter with dual smart cooling fans, 60A built-in MPPT solar charge controller, and LCD telemetry display.',
+    price: 27800,
+    mrp: 34000,
+    imageUrl: APP_IMAGES.solarInverter,
+    stockQuantity: 16,
+    isFeatured: true,
+    averageRating: 4.9,
+    specifications: {
+      nominalVoltage: 24,
+      operatingVoltageMin: 20.0,
+      operatingVoltageMax: 32.0,
+      continuousPowerWatts: 3500,
+      surgePowerWatts: 7000,
+      capacityAh: 0,
+      connectorType: 'Screw Terminal Block',
+      efficiencyPercent: 93,
+      warrantyMonths: 24,
+      weightKg: 14.5,
+      hsnCode: '85044090'
+    },
+    reviews: [
+      {
+        id: 'rev-3',
+        userId: 'u-3',
+        userName: 'Suresh Patil',
+        rating: 5,
+        title: 'Dead silent and handles induction stove effortlessly',
+        comment: 'Clean 230V sine wave with less than 2% THD. My audio gear and sensitive test instruments run completely buzz-free.',
+        createdAt: '2026-10-18',
+        isVerifiedPurchase: true
+      }
+    ]
+  },
+  {
+    id: 'prod-pow-2',
+    sku: 'SV-PSU-3010D',
+    name: 'SmartVolt Pro Lab Dual Regulated DC Power Supply 30V 10A',
+    category: 'Power Equipment',
+    subcategory: 'Power supplies',
+    description: 'Precision linear DC benchtop power supply with 4-digit digital LED voltage and current displays, constant voltage (CV) and constant current (CC) automatic switching.',
+    price: 7800,
+    mrp: 9900,
+    imageUrl: APP_IMAGES.powerEquipment,
+    stockQuantity: 22,
+    isFeatured: true,
+    averageRating: 4.8,
+    specifications: {
+      nominalVoltage: 30,
+      operatingVoltageMin: 0.0,
+      operatingVoltageMax: 30.0,
+      continuousPowerWatts: 300,
+      surgePowerWatts: 350,
+      connectorType: 'Banana Binding Posts',
+      efficiencyPercent: 86,
+      warrantyMonths: 24,
+      weightKg: 5.4,
+      hsnCode: '85044030'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-pow-3',
+    sku: 'SV-STAB-5KVA',
+    name: 'SmartVolt Servo Automatic Voltage Regulator & Stabilizer 5kVA',
+    category: 'Power Equipment',
+    subcategory: 'Voltage regulators',
+    description: 'High-speed motor servo stabilizer correcting mains fluctuation from 90V - 280V to stabilized 230V ±1% with electronic spike surge protection.',
+    price: 15400,
+    mrp: 18900,
+    imageUrl: APP_IMAGES.powerEquipment,
+    stockQuantity: 9,
+    isFeatured: false,
+    averageRating: 4.7,
+    specifications: {
+      nominalVoltage: 230,
+      operatingVoltageMin: 90,
+      operatingVoltageMax: 280,
+      continuousPowerWatts: 4000,
+      surgePowerWatts: 5000,
+      connectorType: 'Heavy Duty Terminal Block',
+      efficiencyPercent: 97,
+      warrantyMonths: 36,
+      weightKg: 22.0,
+      hsnCode: '85044090'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-pow-4',
+    sku: 'SV-UPS-3KVA',
+    name: 'SmartVolt Online Double-Conversion Rackmount UPS 3kVA / 2400W',
+    category: 'Power Equipment',
+    subcategory: 'UPS systems',
+    description: 'Zero transfer time (0ms) online double conversion UPS for mission critical servers, hospital electronics, and telecommunications.',
+    price: 36500,
+    mrp: 44000,
+    imageUrl: APP_IMAGES.hero,
+    stockQuantity: 6,
+    isFeatured: false,
+    averageRating: 5.0,
+    specifications: {
+      nominalVoltage: 72,
+      continuousPowerWatts: 2400,
+      surgePowerWatts: 3000,
+      connectorType: 'IEC C19 / Terminal Block',
+      efficiencyPercent: 92,
+      warrantyMonths: 24,
+      weightKg: 28.5,
+      hsnCode: '85044020'
+    },
+    reviews: []
+  },
+
+  // 3. SOLAR PRODUCTS
+  {
+    id: 'prod-sol-1',
+    sku: 'SV-PAN-550W',
+    name: 'SmartVolt Mono-PERC Bifacial Half-Cut Solar Panel 550W',
+    category: 'Solar Products',
+    subcategory: 'Solar panels',
+    description: 'Grade A+ 144-cell monocrystalline PERC solar module with bifacial dual glass generation up to 25% extra yield from rear ground reflection.',
+    price: 14200,
+    mrp: 18000,
+    imageUrl: APP_IMAGES.solarPanel,
+    stockQuantity: 35,
+    isFeatured: true,
+    averageRating: 4.9,
+    specifications: {
+      nominalVoltage: 41.8,
+      operatingVoltageMin: 35.0,
+      operatingVoltageMax: 49.5,
+      continuousPowerWatts: 550,
+      surgePowerWatts: 620,
+      connectorType: 'MC4 Solar Connector',
+      efficiencyPercent: 21.5,
+      warrantyMonths: 144, // 12 years product, 25 years performance
+      weightKg: 28.0,
+      hsnCode: '85414011'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-sol-2',
+    sku: 'SV-MPPT-60A',
+    name: 'SmartVolt MPPT Solar Charge Controller 60A (12V/24V/36V/48V Auto)',
+    category: 'Solar Products',
+    subcategory: 'Solar charge controllers',
+    description: 'Advanced Maximum Power Point Tracking (99.5% efficiency) supporting up to 150V PV input with automatic battery chemistry voltage recognition.',
+    price: 8900,
+    mrp: 11500,
+    imageUrl: APP_IMAGES.solarInverter,
+    stockQuantity: 24,
+    isFeatured: true,
+    averageRating: 4.8,
+    specifications: {
+      nominalVoltage: 48,
+      operatingVoltageMin: 12.0,
+      operatingVoltageMax: 60.0,
+      continuousPowerWatts: 2880,
+      surgePowerWatts: 3200,
+      connectorType: 'Screw Terminal Block',
+      efficiencyPercent: 98,
+      warrantyMonths: 36,
+      weightKg: 2.8,
+      hsnCode: '85044090'
+    },
+    reviews: []
+  },
+
+  // 4. ELECTRICAL ACCESSORIES
+  {
+    id: 'prod-acc-1',
+    sku: 'SV-CHG-4815',
+    name: 'SmartVolt Smart Multi-Stage Fast Charger 48V 15A LiFePO4',
+    category: 'Electrical Accessories',
+    subcategory: 'Chargers',
+    description: 'CC/CV automatic lithium battery charger with pre-charge recovery mode, aluminum cooling heatsink, and Anderson SB50 high-current connector.',
+    price: 6400,
+    mrp: 8000,
+    imageUrl: APP_IMAGES.powerEquipment,
+    stockQuantity: 30,
+    isFeatured: false,
+    averageRating: 4.8,
+    specifications: {
+      nominalVoltage: 48,
+      continuousPowerWatts: 850,
+      surgePowerWatts: 900,
+      connectorType: 'Anderson SB50',
+      efficiencyPercent: 92,
+      warrantyMonths: 24,
+      weightKg: 2.4,
+      hsnCode: '85044030'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-acc-2',
+    sku: 'SV-CON-SB50',
+    name: 'Heavy Duty Anderson SB50 50A 600V Quick Connect Plugs (Pair)',
+    category: 'Electrical Accessories',
+    subcategory: 'Connectors',
+    description: 'Silver-plated copper contacts for maximum conductivity. Color-keyed mechanically keyed housings to prevent accidental cross-mating.',
+    price: 380,
+    mrp: 550,
+    imageUrl: APP_IMAGES.andersonCables,
+    stockQuantity: 120,
+    isFeatured: false,
+    averageRating: 4.9,
+    specifications: {
+      nominalVoltage: 600,
+      continuousPowerWatts: 3000,
+      connectorType: 'Anderson SB50',
+      efficiencyPercent: 99.8,
+      warrantyMonths: 12,
+      hsnCode: '85366990'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-acc-3',
+    sku: 'SV-CAB-2AWG',
+    name: 'SmartVolt Pure Copper OFC High-Flex Battery Cable 2 AWG (2 Meters)',
+    category: 'Electrical Accessories',
+    subcategory: 'Cables',
+    description: 'Ultra-flexible oxygen-free pure copper wire with silicone insulation rated to 200°C and crimped tinned copper M8 ring terminals.',
+    price: 1450,
+    mrp: 1950,
+    imageUrl: APP_IMAGES.andersonCables,
+    stockQuantity: 45,
+    isFeatured: false,
+    averageRating: 4.8,
+    specifications: {
+      nominalVoltage: 600,
+      continuousPowerWatts: 4500,
+      connectorType: 'M8 Ring Lug',
+      efficiencyPercent: 99.9,
+      warrantyMonths: 24,
+      hsnCode: '85444999'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-acc-4',
+    sku: 'SV-BRK-125A',
+    name: 'SmartVolt DC Thermal Circuit Breaker & Manual Disconnect Switch 125A',
+    category: 'Electrical Accessories',
+    subcategory: 'Switches',
+    description: 'High-amperage surface mount reset breaker for battery inverter systems, electric trolling motors, and solar array isolation.',
+    price: 1190,
+    mrp: 1600,
+    imageUrl: APP_IMAGES.andersonCables,
+    stockQuantity: 50,
+    isFeatured: false,
+    averageRating: 4.7,
+    specifications: {
+      nominalVoltage: 48,
+      continuousPowerWatts: 6000,
+      connectorType: 'Stud Terminal M6',
+      efficiencyPercent: 99.5,
+      warrantyMonths: 24,
+      hsnCode: '85362030'
+    },
+    reviews: []
+  },
+
+  // 5. OTHER ELECTRICAL EQUIPMENT
+  {
+    id: 'prod-oth-1',
+    sku: 'SV-BLDC-4815',
+    name: 'SmartVolt High-Torque Brushless DC (BLDC) Motor 48V 1500W',
+    category: 'Other Electrical Equipment',
+    subcategory: 'Motors',
+    description: 'Industrial grade brushless motor with rare earth neodymium magnets, built-in Hall effect sensors, and keyed drive shaft.',
+    price: 12800,
+    mrp: 16000,
+    imageUrl: APP_IMAGES.bldcMotor,
+    stockQuantity: 11,
+    isFeatured: true,
+    averageRating: 4.8,
+    specifications: {
+      nominalVoltage: 48,
+      operatingVoltageMin: 42,
+      operatingVoltageMax: 54,
+      continuousPowerWatts: 1500,
+      surgePowerWatts: 2500,
+      connectorType: 'XT90 & 5-pin Hall Plug',
+      efficiencyPercent: 88,
+      warrantyMonths: 24,
+      weightKg: 4.8,
+      hsnCode: '85013119'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-oth-2',
+    sku: 'SV-FOC-4815C',
+    name: 'SmartVolt Sine-Wave FOC Motor Controller 48V/60V 50A',
+    category: 'Other Electrical Equipment',
+    subcategory: 'Controllers',
+    description: 'Field Oriented Vector Control (FOC) intelligent motor speed controller with regenerative braking and programmable torque curves.',
+    price: 5600,
+    mrp: 7200,
+    imageUrl: APP_IMAGES.powerEquipment,
+    stockQuantity: 15,
+    isFeatured: false,
+    averageRating: 4.6,
+    specifications: {
+      nominalVoltage: 48,
+      operatingVoltageMin: 40,
+      operatingVoltageMax: 72,
+      continuousPowerWatts: 2400,
+      surgePowerWatts: 3000,
+      connectorType: 'Terminal Connector',
+      efficiencyPercent: 95,
+      warrantyMonths: 12,
+      weightKg: 1.1,
+      hsnCode: '85044090'
+    },
+    reviews: []
+  },
+  {
+    id: 'prod-oth-3',
+    sku: 'SV-SHUNT-500A',
+    name: 'SmartVolt Precision Digital Battery Monitor & 500A Hall Shunt',
+    category: 'Other Electrical Equipment',
+    subcategory: 'Sensors',
+    description: 'High-precision coulomb counter measuring real-time battery State of Charge (SOC %), Ah remaining, voltage, current and runtime countdown.',
+    price: 3850,
+    mrp: 4900,
+    imageUrl: APP_IMAGES.solarInverter,
+    stockQuantity: 22,
+    isFeatured: false,
+    averageRating: 4.9,
+    specifications: {
+      nominalVoltage: 100,
+      operatingVoltageMin: 8,
+      operatingVoltageMax: 120,
+      continuousPowerWatts: 10000,
+      connectorType: 'M10 Shunt Studs',
+      efficiencyPercent: 99.9,
+      warrantyMonths: 24,
+      weightKg: 0.45,
+      hsnCode: '90303310'
+    },
+    reviews: []
+  }
+];
+
+export const INITIAL_COUPONS: Coupon[] = [
+  {
+    code: 'VOLT10',
+    discountType: 'percentage',
+    discountValue: 10,
+    minOrderAmount: 2000,
+    isActive: true
+  },
+  {
+    code: 'ENERGY500',
+    discountType: 'fixed',
+    discountValue: 500,
+    minOrderAmount: 5000,
+    isActive: true
+  },
+  {
+    code: 'SOLAR2026',
+    discountType: 'percentage',
+    discountValue: 12,
+    minOrderAmount: 15000,
+    isActive: true
+  }
+];
